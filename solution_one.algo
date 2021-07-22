@@ -1,0 +1,53 @@
+ALGORITHM Distinct_elements_sum
+VAR
+    arr_1: array of INTEGER[4];
+    arr_2: array of INTEGER[5];
+    distinct: BOOLEAN:=true; //variable indication whether there is a distinct element or not
+    i,j,k,l: INTEGER;//variables for incrementation
+    sum: INTEGER:=0;
+BEGIN
+    write("enter array 1 and 2")
+    read(arr_1)    
+    read(arr_2)
+    FOR i FROM 0 TO arr_1.length - 1 STEP 1  DO
+        j:=0 //reinitializing the incrementation
+        WHILE (arr_2[j]<>arr_1[i] AND j<arr_2.length) DO //checking distinct numbers in array 1
+            j:=j+1 
+        END_WHILE
+        IF (arr_2[j]= arr_1[i]) THEN
+             distinct = false
+        ELSE 
+            (distinct = true) //if distinct is true at the end, add the number to the sum 
+            sum:=sum + arr_1[i]
+        END_IF
+        distinct:=true //reinitializing distinct
+    END_FOR
+    distinct:= true;
+    FOR k FROM 0 TO arr_2.length - 1 STEP 1  DO
+        l:=0
+        WHILE (arr_2[k]<>arr_1[l] AND l<arr_1.length) DO //checking the distinct numbers in array 2
+            l:=l+1
+        END_WHILE
+        IF (arr_2[k]= arr_1[l]) THEN
+             distinct = false
+        ELSE 
+            (distinct = true)
+            sum:=sum + arr_1[i]
+        END_IF
+        distinct:=true
+    END_FOR
+    // previous code
+    // FOR k FROM 0 TO arr_2.length - 1 STEP 1  DO
+    //     FOR l FROM 0 TO arr_1.length - 1 STEP 1  DO
+    //         IF (arr_2[k]= arr_1[l]) THEN //repeat
+    //            distinct = false
+    //         END_IF
+    //     END_FOR
+    //     IF (distinct = true) THEN
+    //         sum:=sum + arr_2[j]
+    //     END_IF
+    //     distinct:=true
+    // END_FOR
+    write("the sum of distinct numbers is:")
+    write(sum)
+END
