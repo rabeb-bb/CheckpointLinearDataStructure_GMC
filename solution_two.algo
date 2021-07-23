@@ -1,0 +1,9 @@
+ALGORITHM Distinct_elements_hash
+VAR
+     arr_1: array of INTEGER[4];
+    arr_2: array of INTEGER[5];
+    htab: HASH_TABLE<integer,integer>
+    sum: INTEGER:=0;
+BEGIN
+    set_instructions
+END
