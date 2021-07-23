@@ -2,8 +2,30 @@ ALGORITHM Distinct_elements_hash
 VAR
      arr_1: array of INTEGER[4];
     arr_2: array of INTEGER[5];
+    arr: ARRAY_OF INTEGER[9];
     htab: HASH_TABLE<integer,integer>
     sum: INTEGER:=0;
 BEGIN
-    set_instructions
+    
+    FOR i FROM 0 TO arr_1.length-1 STEP step  DO
+        arr[i]=arr_1[i]
+    END_FOR
+    FOR j FROM arr_1.length TO arr_1.length +arr_2.length-1 STEP 1  DO
+        arr[j]=arr_2[j]
+    END_FOR
+    FOR k FROM 0 TO arr.length -1 STEP 1  DO
+        IF (htab.lookup(arr[k]) = TRUE) THEN
+           count := htab.get(arr[k]);
+           htab.insert(arr[k],count+1);
+         ELSE
+           htab.insert(arr[k],1);
+        END_IF
+    END_FOR
+    FOR l FROM 0 TO arr.length -1 STEP 1  DO
+       IF (htab.get(arr[l]) = 1) THEN
+           sum:=sum + arr[l]
+       END_IF
+   END_FOR
+   write("the sum of the distinct elements is ",sum)
+
 END

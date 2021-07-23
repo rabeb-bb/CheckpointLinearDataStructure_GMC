@@ -1,0 +1,20 @@
+ALGORITHM Overlapping_sum
+VAR
+    arr_1: array of INTEGER[4];
+    arr_2: array of INTEGER[4];
+    i,j: INTEGER;//variables for incrementation
+    sum: INTEGER:=0;
+BEGIN
+    write("enter array 1 and 2")
+    read(arr_1)    
+    read(arr_2)
+    FOR i FROM 0 TO arr_1.length - 1 STEP 1  DO
+        FOR j FROM 0 TO arr_2.length - 1 STEP 1  DO
+            IF (arr_2[j]= arr_1[i]) THEN
+            sum:=sum + arr_1[i]*2
+        END_IF
+        END_FOR
+    END_FOR
+    write("the sum of overlapping numbers is:")
+    write(sum)
+END
