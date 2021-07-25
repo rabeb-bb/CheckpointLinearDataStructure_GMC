@@ -22,31 +22,18 @@ BEGIN
         END_IF
         distinct:=true //reinitializing distinct
     END_FOR
-    distinct:= true;
+    distinct:= true;//reinitializing distinct
     FOR k FROM 0 TO arr_2.length - 1 STEP 1  DO
         l:=0
         WHILE (arr_2[k]<>arr_1[l] AND l<arr_1.length) DO //checking the distinct numbers in array 2
             l:=l+1
         END_WHILE
         IF (arr_2[k]= arr_1[l]) THEN
-             distinct = false
-        ELSE 
-            (distinct = true)
+             distinct = false //indicating that there are indeed duplicate numbers
+        ELSE IF(distinct = true) THEN
             sum:=sum + arr_1[i]
         END_IF
-        distinct:=true
+        distinct:=true//reintializing distinct
     END_FOR
-    // previous code
-    // FOR k FROM 0 TO arr_2.length - 1 STEP 1  DO
-    //     FOR l FROM 0 TO arr_1.length - 1 STEP 1  DO
-    //         IF (arr_2[k]= arr_1[l]) THEN //repeat
-    //            distinct = false
-    //         END_IF
-    //     END_FOR
-    //     IF (distinct = true) THEN
-    //         sum:=sum + arr_2[j]
-    //     END_IF
-    //     distinct:=true
-    // END_FOR
     write("the sum of distinct numbers is:", sum)
 END
