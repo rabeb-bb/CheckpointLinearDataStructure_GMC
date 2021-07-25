@@ -4,17 +4,27 @@ VAR
     arr_2: array of INTEGER[4];
     i,j: INTEGER;//variables for incrementation
     sum: INTEGER:=0;
+    dup: BOOLEAN:=false;
 BEGIN
-    write("enter array 1 and 2")
-    read(arr_1)    
+    write("enter the first set of numbers")
+    read(arr_1)
+    write("enter the second set of numbers")    
     read(arr_2)
     FOR i FROM 0 TO arr_1.length - 1 STEP 1  DO
-        FOR j FROM 0 TO arr_2.length - 1 STEP 1  DO
-            IF (arr_2[j]= arr_1[i]) THEN
-            sum:=sum + arr_1[i]*2
-        END_IF
-        END_FOR
+        // FOR j FROM 0 TO arr_2.length - 1 STEP 1  DO
+        //     IF (arr_2[j]= arr_1[i]) THEN //checking for duplicates
+        //     sum:=sum + arr_1[i]*2 //adding the duplicates in the sum
+        //     BREAK; //breaking out of the loop if the duplicate were already found? 
+        //     END_IF
+        // END_FOR
+        //alternative
+        WHILE (j<arr_2.length OR dup=true) DO
+            IF (arr_2[j]= arr_1[i]) THEN //checking for duplicates
+            sum:=sum + arr_1[i]*2 //adding the duplicates in the sum
+            dup:=true
+            END_IF
+            j:=j+1
+        END_WHILE
     END_FOR
-    write("the sum of overlapping numbers is:")
-    write(sum)
+    write("the sum of overlapping numbers is:", sum)
 END
