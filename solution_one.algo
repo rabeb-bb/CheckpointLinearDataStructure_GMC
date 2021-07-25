@@ -6,8 +6,9 @@ VAR
     i,j,k,l: INTEGER;//variables for incrementation
     sum: INTEGER:=0;
 BEGIN
-    write("enter array 1 and 2")
-    read(arr_1)    
+    write("enter the first set of numbers")
+    read(arr_1)
+    write("enter the second set of numbers")    
     read(arr_2)
     FOR i FROM 0 TO arr_1.length - 1 STEP 1  DO
         j:=0 //reinitializing the incrementation
@@ -16,8 +17,7 @@ BEGIN
         END_WHILE
         IF (arr_2[j]= arr_1[i]) THEN
              distinct = false
-        ELSE 
-            (distinct = true) //if distinct is true at the end, add the number to the sum 
+        ELSE IF(distinct = true) THEN//if distinct is true at the end, add the number to the sum 
             sum:=sum + arr_1[i]
         END_IF
         distinct:=true //reinitializing distinct
@@ -48,6 +48,5 @@ BEGIN
     //     END_IF
     //     distinct:=true
     // END_FOR
-    write("the sum of distinct numbers is:")
-    write(sum)
+    write("the sum of distinct numbers is:", sum)
 END
