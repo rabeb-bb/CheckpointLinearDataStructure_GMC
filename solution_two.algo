@@ -5,19 +5,22 @@ VAR
     arr: ARRAY_OF INTEGER[9];
     htab: HASH_TABLE<integer,integer>
     sum: INTEGER:=0;
+    count:INTEGER//:=0;
 BEGIN
-    Write("enter the numbers of array one then array 2")
+    Write("enter the numbers of array one")
     Read(arr_1)
+    Write("enter the numbers of array two")
     Read(arr_2)
     FOR i FROM 0 TO arr_1.length-1 STEP step  DO
         arr[i]=arr_1[i]
     END_FOR
     FOR j FROM arr_1.length TO arr_1.length +arr_2.length-1 STEP 1  DO
-        arr[j]=arr_2[j]
+        arr[j]=arr_2[j- arr_1.length]
     END_FOR
+
     FOR k FROM 0 TO arr.length -1 STEP 1  DO
         IF (htab.lookup(arr[k]) = TRUE) THEN
-           count := htab.get(arr[k]);
+           //count := htab.get(arr[k]);
            htab.insert(arr[k],count+1);
          ELSE
            htab.insert(arr[k],1);
