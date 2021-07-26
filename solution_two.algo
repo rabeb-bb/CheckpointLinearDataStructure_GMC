@@ -20,7 +20,7 @@ BEGIN
 
     FOR k FROM 0 TO arr.length -1 STEP 1  DO
         IF (htab.lookup(arr[k]) = TRUE) THEN
-           //count := htab.get(arr[k]);
+           count= htab.get(arr[k])
            htab.insert(arr[k],count+1);
          ELSE
            htab.insert(arr[k],1);
