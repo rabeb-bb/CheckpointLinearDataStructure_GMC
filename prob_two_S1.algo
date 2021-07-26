@@ -19,6 +19,7 @@ BEGIN
         // END_FOR
         //alternative
         WHILE (j<arr_2.length OR dup=true) DO
+    
             IF (arr_2[j]= arr_1[i]) THEN //checking for duplicates
             sum:=sum + arr_1[i]*2 //adding the duplicates in the sum
             dup:=true
